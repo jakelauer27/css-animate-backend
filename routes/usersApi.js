@@ -3,10 +3,12 @@ var router = express.Router();
 var db = require('./queries');
 
 router.get('/users', db.getAllUsers)
-router.post('/users', db.signIn) // must have a body with email and password
+router.post('/users', db.signIn)
 router.post('/users/new', db.createUser)
-router.post('/users/favorites/new', db.addFavorite)
-router.get('/users/:id/favorites', db.getAllFavorites)
-router.delete('/users/:id/favorites/:movie_id', db.deleteFavorite)
+router.get('/users/animations', db.getAllPreBuiltAnimations)
+router.get('/users/:user_id/animations', db.getAllMyAnimations)
+router.post('/users/:user_id/animations/new', db.addAnimation)
+router.put('/users/:user_id/animations/:animation_id', db.editAnimation)
+router.delete('/users/:user_id/animations/:animation_id', db.deleteAnimation)
 
 module.exports = router;
