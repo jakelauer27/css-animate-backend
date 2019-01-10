@@ -5,6 +5,7 @@ const cors = require('express-cors');
 var bodyParser = require('body-parser')
 const app = express();
 const users = require('./routes/usersApi');
+const environment = process.env.NODE_ENV || 'production';
 
 app.use(cors());
 app.use(function(req, res, next) {
