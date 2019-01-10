@@ -3,7 +3,6 @@ const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
 var bodyParser = require('body-parser')
-const port = (process.env.PORT || 3000);
 const app = express();
 const users = require('./routes/usersApi');
 
@@ -35,6 +34,9 @@ app.use(express.static('app'));
 
 app.use('/api', users);
 
-app.listen(port);
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 
 console.log(`Listening at http://localhost:${port}`);

@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var db = require('./queries');
 
-router.get('/users', db.getAllUsers)
 router.post('/users', db.signIn)
 router.post('/users/new', db.createUser)
 router.get('/users/animations', db.getAllPreBuiltAnimations)

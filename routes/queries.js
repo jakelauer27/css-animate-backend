@@ -8,19 +8,6 @@ var pgp = require('pg-promise')(options);
 var connectionString = 'postgres://localhost:5432/users';
 var db = pgp(connectionString);
 
-function getAllUsers(req, res, next) {
-  db.any('select * from users')
-    .then(function(data) {
-      res.status(200).json({
-        status: 'success',
-        data: data,
-        message: 'Retrieved All Users'
-      });
-    }).catch(function(err) {
-      return next(err)
-  });
-}
-
 function signIn(req, res, next) {
   db.one('select * from users where email=${email} and password=${password}', req.body)
   .then(function (data) {
@@ -118,7 +105,6 @@ function deleteAnimation(req, res, next) {
 
 
 module.exports = {
-  getAllUsers: getAllUsers,
   signIn: signIn,
   createUser: createUser,
   getAllPreBuiltAnimations: getAllPreBuiltAnimations,
