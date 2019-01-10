@@ -2,6 +2,13 @@
 
 This is the backend for the [CSS-Animate app](https://github.com/jakelauer27/css-animate-frontend)
 
+## Setup 
+
+clone down repo (must have postgress)
+run `npm install`
+create database and tables `psql -f ./database/users.sql`
+run `npm start` must - run on 
+
 ## API - Endpoints
 
 
