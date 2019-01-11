@@ -9,6 +9,8 @@ var pgp = require('pg-promise')(options);
 var connectionString = process.env.DATABASE_URL;
 var db = pgp(connectionString);
 
+console.log(process.env.DATABASE_URL)
+
 function signIn(req, res, next) {
   db.one('select * from users where email=${email} and password=${password}', req.body)
   .then(function (data) {
