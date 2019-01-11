@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('express-cors');
 var bodyParser = require('body-parser')
 const app = express();
-let port = (process.env.PORT || 3000)
+const port = (process.env.PORT || 3000)
 const users = require('./routes/usersApi');
 const environment = process.env.NODE_ENV || 'development';
 
