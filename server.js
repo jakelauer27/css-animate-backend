@@ -37,4 +37,6 @@ app.use(express.static('app'));
 
 app.use('/api', users);
 
+app.listen(port);
+
 console.log(`Listening at http://localhost:${port}`);
